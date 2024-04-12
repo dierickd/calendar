@@ -1,0 +1,95 @@
+{{ form_start(form) }}
+
+
+<div class="row d-flex align-items-end gap-2 mb-4">
+    <h5 class="col-1">Lundi</h5>
+    <div class="col-2">
+        {{ form_label(form.mondayOpen) }}
+        {{ form_widget(form.mondayOpen) }}
+    </div>
+    <div class="col-2">
+        {{ form_label(form.mondayClose) }}
+        {{ form_widget(form.mondayClose) }}
+    </div>
+</div>
+
+<div class="row d-flex align-items-end gap-2 mb-4">
+    <h5 class="col-1">Mardi</h5>
+    <div class="col-2">
+        {{ form_label(form.tuesdayOpen) }}
+        {{ form_widget(form.tuesdayOpen) }}
+    </div>
+    <div class="col-2">
+        {{ form_label(form.tuesdayClose) }}
+        {{ form_widget(form.tuesdayClose) }}
+    </div>
+</div>
+<div class="row d-flex align-items-end gap-2 mb-4">
+    <h5 class="col-1">Mercredi</h5>
+    <div class="col-2">
+        {{ form_label(form.wednesdayOpen) }}
+        {{ form_widget(form.wednesdayOpen) }}
+    </div>
+    <div class="col-2">
+        {{ form_label(form.wednesdayClose) }}
+        {{ form_widget(form.wednesdayClose) }}
+    </div>
+</div>
+<div class="row d-flex align-items-end gap-2 mb-4">
+    <h5 class="col-1">Jeudi</h5>
+    <div class="col-2">
+        {{ form_label(form.thursdayOpen) }}
+        {{ form_widget(form.thursdayOpen) }}
+    </div>
+    <div class="col-2">
+        {{ form_label(form.thursdayClose) }}
+        {{ form_widget(form.thursdayClose) }}
+    </div>
+</div>
+<div class="row d-flex align-items-end gap-2 mb-4">
+    <h5 class="col-1">Vendredi</h5>
+    <div class="col-2">
+        {{ form_label(form.fridayOpen) }}
+        {{ form_widget(form.fridayOpen) }}
+    </div>
+    <div class="col-2">
+        {{ form_label(form.fridayClose) }}
+        {{ form_widget(form.fridayClose) }}
+    </div>
+</div>
+<div class="row d-flex align-items-end gap-2 mb-4">
+    <h5 class="col-1">Samedi</h5>
+    <div class="col-2">
+        {{ form_label(form.saturdayOpen) }}
+        {{ form_widget(form.saturdayOpen) }}
+    </div>
+    <div class="col-2">
+        {{ form_label(form.saturdayClose) }}
+        {{ form_widget(form.saturdayClose) }}
+    </div>
+</div>
+<div class="row d-flex align-items-end gap-2 mb-4">
+    <h5 class="col-1">Dimanche</h5>
+    <div class="col-2">
+        {{ form_label(form.sundayOpen) }}
+        {{ form_widget(form.sundayOpen) }}
+    </div>
+    <div class="col-2">
+        {{ form_label(form.sundayClose) }}
+        {{ form_widget(form.sundayClose) }}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div class="form-check">
+            {{ form_label(form.is_open_holidays) }}
+            {{ form_widget(form.is_open_holidays) }}
+        </div>
+    </div>
+</div>
+
+{{ form_widget(form) }}
+
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

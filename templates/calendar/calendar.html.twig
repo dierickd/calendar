@@ -1,0 +1,44 @@
+{% set routeName = app.request.attributes.get('_route') %}
+
+<div class="calendar__container my-5">
+    <div class="d-flex justify-content-between align-items-center mx-2">
+        <h2>{{ title }}</h2>
+        <div>
+            <a href="{{ path(routeName) }}" class="btn btn-sm btn-primary">Aujourd'hui</a>
+            <a href="{{ path(routeName) ~ '?month=' ~ previous.month ~ '&year=' ~ previous.year }}"
+               class="btn btn-sm btn-primary">&lt</a>
+            <a href="{{ path(routeName) ~ '?month=' ~ next.month ~ '&year=' ~ next.year }}"
+               class="btn btn-sm btn-primary">&gt</a>
+        </div>
+    </div>
+
+    <table class="calendar__table mb-4 mt-3 calendar__week_{{ weeks }}">
+        <thead>
+        <tr>
+            {% for i in 0..6 %}
+                <th class="ps-2">
+                    <div class="calendar__weekday">{{ dayNames[i] | slice(0,3) }}</div>
+                </th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in 1..weeks %}
+            <tr>
+                {% for key, day in dayNames %}
+                    {% set date = start | date_modify("+" ~ ((key + i * 7) - 7) ~ "days") %}
+                    <td class="
+                        {{ date | withinMonth(year, month) ? '' : 'calendar__othermonther' }}
+                        {{ date | date("Y-m-d") == "now"|date("Y-m-d") ? 'calendar__today' : '' }}
+                        {{ date | date("N") > "5" ? 'calendar__day__disable' : '' }}
+                        {{ date | isHoliday() ? 'calendar__day__is_holiday' : '' }}
+                    ">
+                        <div class="calendar__day">{{ date | date('d') }}</div>
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
